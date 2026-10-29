@@ -1,0 +1,130 @@
+/* width passa a incluir padding e borda*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #222222;
+  margin: 0;
+  padding: 20px;
+}
+
+/*Topo: título, foto e apresentação*/
+
+.topo {
+  background-color: #1f1f2e;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 8px;
+}
+
+.foto {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  /* deixa a foto redonda */
+  border: 4px solid white;
+  /* object-fit: cover - propriedade nova, não vista nas aulas (fonte: MDN).
+     Corta a imagem para preencher o tamanho sem esticar. */
+  object-fit: cover;
+  /* Animação automática: a foto aparece com fade ao carregar a página */
+  animation: aparecer 1.5s ease;
+}
+
+.apresentacao {
+  font-size: 18px;
+  margin: 20px auto 0;
+  width: 80%;
+
+  animation: aparecer 2.5s ease;
+}
+
+/*Keyframes*/
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subtitulo {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/*CSS grid */
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 colunas iguais */
+  gap: 24px;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 16px;
+  /* Transition */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/*Hover: o card sobe (translateY) e cresce um pouco (scale), e muda de cor*/
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  background-color: #dbe9f6;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  /* propriedade nova, ver comentário em .foto */
+}
+
+.card h2 {
+  font-size: 20px;
+  margin: 12px 0 8px;
+}
+
+.card p {
+  color: #555555;
+  margin: 0;
+}
+
+.rodape {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+
+
+/* Telas médias (tablet): 2 colunas */
+@media (max-width: 888px) {
+  .grade {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Celular: 1 coluna e textos menores */
+@media (max-width: 500px) {
+  .grade {
+    grid-template-columns: 1fr;
+  }
+
+  .apresentacao {
+    font-size: 16px;
+    width: 100%;
+  }
+}
