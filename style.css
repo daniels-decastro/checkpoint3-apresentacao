@@ -43,6 +43,7 @@ body {
 }
 
 /*Keyframes*/
+/*animação que faz o elemento surgir. Começa invisível e mais abaixo, termina visível no lugar*/
 @keyframes aparecer {
   from {
     opacity: 0;
@@ -75,6 +76,7 @@ body {
   border-radius: 8px;
   padding: 16px;
   /* Transition */
+  /*faz o movimento e a troca de cor do hover acontecerem de forma suave*/
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
